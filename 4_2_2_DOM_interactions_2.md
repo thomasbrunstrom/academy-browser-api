@@ -18,9 +18,9 @@ Make a transition for when the accordion text appears / disappears.
 
 We now want to add another accordion. The challenge now is too open and close the right accordion text. There is a number of ways to do this. But you might want to start with restructuring the HTML. Here is some suggestions for possible approaches. Try at least two of these:
 
-    Give the accordion title and text a unique ID. Such as "accordion-title-1" and "accordion-text-1" so that you can correspond the accordion title being clicked with the text it should show.
-    Place the accordion text within the accordion title (in its own div). In that way, could could show the text with some smart CSS by setting a class on the accordion title.
-    Place the accordion text and accordion title together in an accordion container div. When you receive an event, find the currentTarget / target in the event object, and use that to iterate the DOM three. (find sibling, or find the parent, and it's children with a specific class (such as accordion-text).
+- Give the accordion title and text a unique ID. Such as "accordion-title-1" and "accordion-text-1" so that you can correspond the accordion title being clicked with the text it should show.
+- Place the accordion text within the accordion title (in its own div). In that way, could could show the text with some smart CSS by setting a class on the accordion title.
+- Place the accordion text and accordion title together in an accordion container div. When you receive an event, find the currentTarget / target in the event object, and use that to iterate the DOM three. (find sibling, or find the parent, and it's children with a specific class (such as accordion-text).
 
 ## Task 4:
 
