@@ -96,10 +96,10 @@
         const removeButtons = document.querySelectorAll(".header h3 button");
         removeButtons.forEach((b) => {
           b.addEventListener("click", (event) => {
-            //Risk for infinitive loop here.
+            //Risk for infinitive loop here?!?
             let cn = event.target;
             while (cn) {
-              if (cn.classList.contains("header")) {
+              if (cn && cn.classList && cn.classList.contains("header")) {
                 cn.remove();
                 break;
               }

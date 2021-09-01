@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .red {
+        color: red;
+      }
+      .blue {
+        color: blue;
+      }
+      .green {
+        color: green;
+      }
+      .clickButton2 {
+        border-radius: 5px;
+        font-size: 2rem;
+        background-color: gold;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="clickCounter">I have been clicked 0 times</p>
+    <button class="clickButton1">Click me</button>
+    <button class="clickButton3">Reset</button>
+    <script>
+      (() => {
+        let proCounterStep = 10;
+        let addedButton = false;
+        const p = document.querySelector("#clickCounter");
+        const b1 = document.querySelector(".clickButton1");
+
+        document
+          .querySelector(".clickButton3")
+          .addEventListener("click", () => {
+            document.cookie = "myCounter=0";
+            counter = 0;
+            const proButton = document.querySelector(".clickButton2");
+            proButton.classList.add("hidden");
+            addedButton = false;
+            updateTextAndColor();
+          });
+
+        const addProClick = function (event) {
+          if (counter > 100) {
+            proCounterStep = 20;
+          }
+          counter += proCounterStep;
+          updateTextAndColor();
+        };
+
+        const updateTextAndColor = function () {
+          p.innerHTML = `I have been clicked ${counter} times`;
+          p.classList.remove(...p.classList);
+          if (counter % 3 === 0 && counter % 5 === 0) {
+            p.classList.add("green");
+          } else if (counter % 3 == 0) {
+            p.classList.add("red");
+          } else if (counter % 5 == 0) {
+            p.classList.add("blue");
+          }
+          document.cookie = `myCounter=${counter}`;
+          //window.localStorage.setItem("myCounter", counter);
+        };
+        const addProbutton = function () {
+          addedButton = true;
+          const body = document.querySelector("body");
+          const newButton = document.createElement("button");
+          newButton.classList.add("clickButton2");
+          newButton.innerHTML = "🎉 Pro click +10";
+          newButton.addEventListener("click", addProClick);
+          body.appendChild(newButton);
+        };
+
+        const addClickHandler = function (event) {
+          counter++;
+          if (counter > 100) {
+            proCounterStep = 20;
+          }
+          if (counter > 19 && !addedButton) {
+            addProbutton();
+          }
+
+          updateTextAndColor();
+        };
+
+        // let counter = window.localStorage.getItem("myCounter");
+        // if (!counter) {
+        //   counter = 0;
+        // }
+        let myCookie = document.cookie;
+        let counter = 0;
+        if (myCookie) {
+          counter = parseInt(myCookie.split("=")[1], 10);
+        }
+
+        if (counter > 19 && !addedButton) {
+          addProbutton();
+        }
+        updateTextAndColor();
+
+        b1.addEventListener("click", addClickHandler);
+      })();
+    </script>
+  </body>
+</html>
