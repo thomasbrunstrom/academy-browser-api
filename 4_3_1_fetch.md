@@ -22,7 +22,7 @@ The server expects the request body to look like this: { "message": "string to b
 
 ## Task 3
 
-Using the same server as you were running in task 2, create a XKCD viewer. You have two endpoints http://127.0.0.1:5050/xkcd and http://127.0.0.1/xkcd/{id} These endpoints return the latest XKCD comic, or a XKCD comic with a specific ID. Use the endpoints to create your own nice xkcd viewer in HTML / CSS and JS. The real deal is found here for inspiration: xkcd.com.
+Using the same server as you were running in task 2, create a XKCD viewer. You have two endpoints http://127.0.0.1:5050/xkcd and http://127.0.0.1:5050/xkcd/{id} These endpoints return the latest XKCD comic, or a XKCD comic with a specific ID. Use the endpoints to create your own nice xkcd viewer in HTML / CSS and JS. The real deal is found here for inspiration: xkcd.com.
 
 ## Task 4
 
